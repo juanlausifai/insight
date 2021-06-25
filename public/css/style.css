@@ -1,0 +1,1283 @@
+/* ********** Custom Properties ********** */
+:root {
+    --font: "Raleway", sans-serif;
+    --text-color: #222;
+    --link-color: #509ee3;
+    --max-width: 1200px;
+    --first-color: #f3de2c;
+    --second-color: #fb6107;
+    --third-color:#7cb518;
+    --bedroom-color:#5c8001;
+    --fifth-color:#fbb02d;
+    --header-height: 4rem;
+    --white-color: #fff;
+    
+  }
+
+/* ********** Reset ********** */
+html {
+    box-sizing: border-box;
+    font-family: var(--font);
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    color: var(--text-color);
+  }
+  
+  a {
+    color: var(--link-color);
+    transition: all 0.5s ease-out;
+  }
+  
+  a:hover {
+    opacity: 0.75;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  h4 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  h5 {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+  
+  h6 {
+    margin: 0;
+    font-size: 0.7rem;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+
+
+
+
+  .grid-areas{
+
+    display: grid;
+      /*fr espacio sobrante*/
+      /*Defino 2 columnas una de 1fr(content) y la otra 200px(sidebar)*/
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+       /*Defino 4 filas una de 100px(header), 2 de 1fr(content), 60px(footer)*/
+      grid-template-rows: 160px 300px 100px 200px 200px 200px 600px 300px 500px 300px 800px 100px ;
+
+      /*Pongo nombres a las areas*/
+      grid-template-areas: 
+     
+      "logo logo mensaje mensaje mensaje"
+      "imagenPrincipal imagenPrincipal imagenPrincipal imagenPrincipal imagenPrincipal"/*3ra fila(content una columna, vacio la otra columna)*/
+      "titulo-clases titulo-clases titulo-clases titulo-clases titulo-clases"
+      ". imagenNiño imagenNiño imagenNiño ."
+      ". imagenAdolecente imagenAdolecente imagenAdolecente ."
+      ". imagenAdulto imagenAdulto imagenAdulto ."
+      "presentacion presentacion presentacion presentacion presentacion"
+      "imagen imagen imagen imagen imagen"
+      "presentacionDos presentacionDos presentacionDos presentacionDos presentacionDos"
+      "imagenDos imagenDos imagenDos imagenDos imagenDos"
+      "slider slider slider slider slider"
+      "logoInstagram logoInstagram logoCorreo logoTelefono logoTelefono";
+  }
+
+  
+
+.logo{
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.logo>img{
+    width: 11em;
+    height: 11em;
+    margin-bottom: 5px;
+}
+
+.mensaje{
+    grid-area: mensaje;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+} 
+
+.cuadro-mensaje{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 95%;
+  font-size: large;
+  color: black;
+  height: 100%;
+  font-size: 1.2em;
+  padding: 1em;
+  margin-top: 60px;
+  font-size: 22px;
+  font-weight: 700;
+  border-left: 5px solid;
+  color: var(--second-color);
+   
+    
+}
+
+.menuPrincipal{
+    grid-area: menuPrincipal;
+    
+    
+    
+}    
+.imagen{
+  grid-area: imagen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  padding: 0px;
+   
+} 
+
+.imagen>img{
+  
+  margin-left: 5px;
+  margin-right:5px ;  
+  width: 95%;
+  height: 95%;
+    
+}
+
+.presentacion{
+    grid-area: presentacion;
+} 
+
+.imagenNiño{
+    grid-area: imagenNiño;
+} 
+
+.imagenAdolecente{
+    grid-area: imagenAdolecente;
+} 
+
+.imagenAdulto{
+    grid-area: imagenAdulto;
+} 
+
+.slider{
+    grid-area: slider;
+} 
+
+.logoInstagram{
+    grid-area: logoInstagram;
+} 
+
+.logoCorreo{
+    grid-area: logoCorreo;
+} 
+
+.logoTelefono{
+    grid-area: logoTelefono;
+} 
+
+
+
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width);
+  }
+
+
+  
+
+  .header {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    padding: 1rem;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--second-color);
+    
+  }
+  
+  .header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  /* ********** Menu ********** */
+  .menu-btn {
+    outline: thin solid var(--first-color);
+    border: 0;
+    cursor: pointer;
+    background-color: var(--second-color);
+    
+  }
+  
+  .menu-btn svg {
+    fill: var(--first-color);
+  }
+  
+  .menu {
+    position: fixed;
+    left: 0;
+    bottom: var(--header-height);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--second-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  
+  .menu.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .menu a {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white-color);
+  }
+  
+  .menu a:hover {
+    color: var(--text-color);
+    background-color: var(--first-color);
+  }
+  
+
+  /*===========================================*/
+                /*PANTALLA DE PC*/
+  /*===========================================*/
+
+  @media screen and (min-width: 1024px) {
+    
+    /*ESTRUCTURA INDEX*/
+    .grid-areas{
+
+      display: grid;
+        /*fr espacio sobrante*/
+        /*Defino 5 columnas */
+        grid-template-columns: 0px 1fr 1fr 1fr 0px;
+         /*Defino 9 filas */
+        grid-template-rows: 130px 1fr 400px 100px 300px 420px 420px 800px 100px ;
+        /*Agrego nombres a las areas*/
+        grid-template-areas: 
+        "logo logo mensaje mensaje mensaje"
+        "menuPrincipal menuPrincipal menuPrincipal menuPrincipal menuPrincipal"
+        "imagenPrincipal imagenPrincipal imagenPrincipal imagenPrincipal imagenPrincipal"
+        "titulo-clases titulo-clases titulo-clases titulo-clases titulo-clases"
+        ". imagenNiño imagenAdolecente imagenAdulto ."
+        "imagen imagen presentacion presentacion presentacion"/*3ra fila(content una columna, vacio la otra columna)*/
+        "presentacionDos presentacionDos imagenDos imagenDos imagenDos"
+        "slider slider slider slider slider"
+        ". logoInstagram logoCorreo logoTelefono .";/*4ta fila(footer ocupa las 2 columnas)*/
+    }
+
+    /*ESTRUCTURA CLASES*/
+
+    .grid-areas-clases{
+
+      display: grid;
+        /*fr espacio sobrante*/
+        /*Defino 2 columnas una de 1fr(content) y la otra 200px(sidebar)*/
+        grid-template-columns: 0px 1fr 1fr 1fr 0px;
+         /*Defino 4 filas una de 100px(header), 2 de 1fr(content), 60px(footer)*/
+        grid-template-rows: 130px 1fr 100px 500px 100px 450px 100px  ;
+  
+        /*Pongo nombres a las areas*/
+        grid-template-areas: 
+        "logo logo mensaje mensaje mensaje"
+        "menuPrincipal menuPrincipal menuPrincipal menuPrincipal menuPrincipal"
+        "titulo-clases-ninos titulo-clases-ninos titulo-clases-ninos titulo-clases-ninos titulo-clases-ninos"
+        "img-ninos img-ninos img-ninos texto-clases-ninos texto-clases-ninos"
+        "titulo-clases-adultos titulo-clases-adultos titulo-clases-adultos titulo-clases-adultos titulo-clases-adultos"
+        "img-adultos img-adultos texto-clases-adultos texto-clases-adultos texto-clases-adultos"
+        ". logoInstagram logoCorreo logoTelefono .";/*4ta fila(footer ocupa las 2 columnas)*/
+    }
+
+    /*ESTRUCTURA TALLERES*/
+
+    .grid-areas-talleres{
+
+      display: grid;
+        /*fr espacio sobrante*/
+        /*Defino 2 columnas una de 1fr(content) y la otra 200px(sidebar)*/
+        grid-template-columns: 0px 1fr 1fr 1fr 0px;
+         /*Defino 4 filas una de 100px(header), 2 de 1fr(content), 60px(footer)*/
+        grid-template-rows: 130px 1fr 100px 700px  100px  ;
+  
+        /*Pongo nombres a las areas*/
+        grid-template-areas: 
+        "logo logo mensaje mensaje mensaje"
+        "menuPrincipal menuPrincipal menuPrincipal menuPrincipal menuPrincipal"
+        "titulo-talleres titulo-talleres titulo-talleres titulo-talleres titulo-talleres"
+        "img-talleres img-talleres img-talleres texto-talleres texto-talleres"
+        ". logoInstagram logoCorreo logoTelefono .";/*4ta fila(footer ocupa las 2 columnas)*/
+    }
+
+    /*ESTRUCTURA NOSOTRAS*/
+
+    .grid-areas-nosotras{
+
+      display: grid;
+        /*fr espacio sobrante*/
+        /*Defino 2 columnas una de 1fr(content) y la otra 200px(sidebar)*/
+        grid-template-columns: 0px 1fr 1fr 1fr 0px;
+         /*Defino 4 filas una de 100px(header), 2 de 1fr(content), 60px(footer)*/
+        grid-template-rows: 130px 1fr 100px 350px 500px 100px  ;
+  
+        /*Pongo nombres a las areas*/
+        grid-template-areas: 
+        "logo logo mensaje mensaje mensaje"
+        "menuPrincipal menuPrincipal menuPrincipal menuPrincipal menuPrincipal"
+        "titulo-nosotras titulo-nosotras titulo-nosotras titulo-nosotras titulo-nosotras"
+        "img-nosotras img-nosotras texto-nosotras texto-nosotras ."
+        "imagenes-individuales imagenes-individuales imagenes-individuales imagenes-individuales imagenes-individuales"
+        ". logoInstagram logoCorreo logoTelefono .";/*4ta fila(footer ocupa las 2 columnas)*/
+    }
+
+    /*ESTRUCTURA MODALIDAD*/
+
+    .grid-areas-modalidad{
+
+      display: grid;
+        /*fr espacio sobrante*/
+        /*Defino 2 columnas una de 1fr(content) y la otra 200px(sidebar)*/
+        grid-template-columns: 0px 1fr 1fr 1fr 0px;
+         /*Defino 4 filas una de 100px(header), 2 de 1fr(content), 60px(footer)*/
+        grid-template-rows: 130px 1fr 100px 600px  100px  ;
+    
+        /*Pongo nombres a las areas*/
+        grid-template-areas: 
+        "logo logo mensaje mensaje mensaje"
+        "menuPrincipal menuPrincipal menuPrincipal menuPrincipal menuPrincipal"
+        "titulo-modalidad titulo-modalidad titulo-modalidad titulo-modalidad titulo-modalidad"
+        "img-modalidad img-modalidad texto-modalidad texto-modalidad texto-modalidad"
+        ". logoInstagram logoCorreo logoTelefono .";/*4ta fila(footer ocupa las 2 columnas)*/
+    }
+
+    /*ESTRUCTURA CONTACTO*/
+
+    .grid-areas-contacto{
+
+      display: grid;
+        /*fr espacio sobrante*/
+        /*Defino 2 columnas una de 1fr(content) y la otra 200px(sidebar)*/
+        grid-template-columns: 0px 1fr 1fr 1fr 0px;
+         /*Defino 4 filas una de 100px(header), 2 de 1fr(content), 60px(footer)*/
+        grid-template-rows: 130px 1fr 100px 400px 100px  ;
+    
+        /*Pongo nombres a las areas*/
+        grid-template-areas: 
+        "logo logo mensaje mensaje mensaje"
+        "menuPrincipal menuPrincipal menuPrincipal menuPrincipal menuPrincipal"
+        "titulo-talleres titulo-talleres titulo-talleres titulo-talleres titulo-talleres"
+        "formulario-contacto formulario-contacto formulario-contacto errores errores"
+        ". logoInstagram logoCorreo logoTelefono .";/*4ta fila(footer ocupa las 2 columnas)*/
+    }
+
+
+  }/*CIERRE DE MEDIA QUERY*/
+  
+    
+  /*LOGO DE INSTITUTO*/
+  .logo{
+      grid-area: logo;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+  }
+  
+  .logo>img{
+      width: 11em;
+      height: 11em;
+  }
+  
+  
+  /*MENSAJE A LA DERECHA DEL LOGO*/
+  .mensaje{
+      grid-area: mensaje;
+      display: flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
+  } 
+  
+  .cuadro-mensaje{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 50%;
+      font-size: large;
+      color: black;
+      height: 100%;
+      font-size: 1.2em;
+      padding: 1em;
+      margin-top: 60px;
+      font-size: 22px;
+      font-weight: 700;
+      border-left: 5px solid;
+      color: var(--second-color);
+      
+  }
+
+  /*MENU*/
+  
+  .menuPrincipal{
+      grid-area: menuPrincipal;
+      margin-top: 50px;
+  }
+  
+  /*IMAGEN PRINCIPAL PARALLAX*/
+  
+  .imagenPrincipal{
+    grid-area:imagenPrincipal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: linear-gradient(120deg, hsla(46, 89%, 68%, 0.507) 0%, hsla(13, 94%, 21%, 0.5) 100%),url(../img/imagen-principal.jpg);
+  }
+
+  .imagenPrincipal h2{
+    font-size: 4em;
+    color: white
+  }
+
+  .imagen{
+      grid-area: imagen;
+     display: flex;
+     justify-content: center; 
+     padding: 10px;
+     background: var(--second-color);
+     margin-top:50px;
+  } 
+  
+  .imagen>img{
+      width: 100%;
+      height: 100%;
+  }
+  
+  /*PRESENTACION PRIMERA PARTE*/
+
+  .presentacion{
+      grid-area: presentacion;
+      font-size: large;
+      padding: 50px;
+      display: flex;
+      justify-content: center ;
+      background: var(--second-color);
+      margin-top:50px;
+  } 
+
+  .presentacion-mensaje{
+    
+    padding: 60px;
+    font-weight: 700;
+    border-radius: 6px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+    color:#000;   
+    
+  }
+
+  /*PRESENTACION SEGUNDA PARTE*/
+
+  .presentacionDos{
+    grid-area: presentacionDos;
+    font-size: large;
+    padding: 50px;
+    display: flex;
+    justify-content: center ;
+    background: var(--second-color);
+    
+} 
+
+.presentacion-mensaje-dos{
+    
+  padding: 60px;
+  font-weight: 700;
+  border-radius: 6px;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+  color:#000;  
+  
+  
+}
+
+.imagenDos{
+  grid-area:imagenDos;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--second-color);
+}
+
+.imagenDos>img{
+  width: 80%;
+  height: 80%;
+}
+
+.titulo-clases{
+  grid-area: titulo-clases;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:50px;
+  margin-bottom: 25px;
+  color:#505050;
+}
+.titulo-clases h3{
+  font-size: 2em;
+}
+
+
+
+/*IMAGEN NIÑO*/
+  
+.imagenNiño{
+  grid-area: imagenNiño;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+  cursor: pointer;
+  
+} 
+
+.imagenNiño > img{
+    width: 100%;
+    height: 100%;
+    transition: all 500ms ease-out;
+} 
+
+.imagenNiño .capa{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(123, 49, 0, 0.6);
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+
+.imagenNiño:hover > .capa {
+  opacity: 1;
+  visibility: visible;
+}
+
+.imagenNiño:hover > .capa h3 {
+  margin-top: 70px;
+  margin-bottom: 15px;
+  transition: all 500ms ease-out;
+}
+
+.imagenNiño:hover > img {
+  transform: scale(1.3);
+}
+
+.imagenNiño .capa h3{
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 120px;
+  margin-top: 30px;
+}
+
+.imagenNiño .capa p{
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
+}
+
+/*IMAGEN ADOLESCENTE*/
+  
+.imagenAdolecente{
+    grid-area: imagenAdolecente;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+    cursor: pointer; 
+} 
+
+.imagenAdolecente > img{
+  width: 100%;
+  height: 100%;
+  transition: all 500ms ease-out;
+} 
+
+.imagenAdolecente .capa{
+position: absolute;
+top: 0;
+width: 100%;
+height: 100%;
+background: rgba(14, 123, 0, 0.6);
+transition: all 500ms ease-out;
+opacity: 0;
+visibility: hidden;
+text-align: center;
+}
+
+.imagenAdolecente:hover > .capa {
+opacity: 1;
+visibility: visible;
+}
+
+.imagenAdolecente:hover > .capa h3 {
+margin-top: 70px;
+margin-bottom: 15px;
+transition: all 500ms ease-out;
+}
+
+.imagenAdolecente:hover > img {
+transform: scale(1.3);
+}
+
+.imagenAdolecente .capa h3{
+color: #fff;
+font-weight: 400;
+margin-bottom: 120px;
+margin-top: 30px;
+}
+
+.imagenAdolecente .capa p{
+color: #fff;
+font-size: 15px;
+line-height: 1.5;
+width: 100%;
+max-width: 220px;
+margin: auto;
+}
+
+/*IMAGEN ADULTO*/
+  
+  .imagenAdulto{
+    grid-area: imagenAdulto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+    cursor: pointer;  
+  }
+  
+  .imagenAdulto > img{
+    width: 100%;
+    height: 100%;
+    transition: all 500ms ease-out;
+  } 
+  
+  .imagenAdulto .capa{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(123, 115, 0, 0.6);
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  }
+  
+  .imagenAdulto:hover > .capa {
+  opacity: 1;
+  visibility: visible;
+  }
+  
+  .imagenAdulto:hover > .capa h3 {
+  margin-top: 70px;
+  margin-bottom: 15px;
+  transition: all 500ms ease-out;
+  }
+  
+  .imagenAdulto:hover > img {
+  transform: scale(1.3);
+  }
+  
+  .imagenAdulto .capa h3{
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 120px;
+  margin-top: 30px;
+  }
+  
+  .imagenAdulto .capa p{
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
+  }
+
+
+
+/*PRESENTACION PROFESORAS*/
+  
+  .slider{
+      grid-area: slider;
+      text-align: center;
+      color: #505050;
+      line-height: 1.7;
+      
+  } 
+
+  .slider .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .slider > .titulo{
+    max-width: 600px;
+    margin:auto;
+    margin-bottom: 60px;
+    
+  }
+  
+  .slider > .titulo h3{
+    margin-bottom: 25px;
+    font-size: 2em;
+  }
+
+  .slider > .titulo p{
+    font-size: 1.3em;
+  }
+
+  .slider > .box figure{
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    
+  }
+  
+  .img-profesora{
+    width: 250px;
+    height: 250px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .section-title {
+    border-top: thin solid var(--second-color);
+    border-bottom: thin solid var(--second-color);
+    margin: 2rem auto;
+    padding: 0.5rem 1rem;
+    width: 500px;
+    text-align: center;
+    color: var(--title-color);
+  }
+
+
+  
+  .logoInstagram{
+      grid-area: logoInstagram;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #505050;
+  } 
+
+  .logoInstagram a {
+    transform: scale(4);
+    color: var(--second-color);
+  }
+  
+  .logoCorreo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #505050;
+  }
+  
+  .logoCorreo a{
+    transform: scale(4);
+    color: var(--first-color);
+  } 
+  
+  .logoTelefono{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #505050;
+  } 
+  
+  .logoTelefono a{
+    transform: scale(4);
+    color: var(--third-color);
+  } 
+  
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width);
+  }
+   
+  /*=======================================================
+                    SECCION CLASES
+  =========================================================*/
+  
+  .tituloClasesNinos{
+    grid-area: titulo-clases-ninos;
+    
+  }
+
+  .textoClasesImgNinos{
+    grid-area: img-ninos ;
+    
+  }
+
+  .textoClasesNinos{
+    grid-area: texto-clases-ninos;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    
+} 
+
+.textoClasesNinos p{
+  padding: 7px;
+  font-weight: 560;
+  border-left: solid 2px;
+  border-color: var(--second-color);
+  
+ }
+
+ .textoClasesImgNinos img{
+   width: 100%;
+   height: 100%;
+   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+   border-radius: 6%;
+ }
+
+ .tituloClasesAdultos{
+  grid-area: titulo-clases-adultos;
+}
+
+.textoClasesImgAdultos{
+  grid-area: img-adultos;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textoClasesAdultos{
+  grid-area: texto-clases-adultos;
+  margin: 10px;
+  
+} 
+
+.textoClasesAdultos p{
+  padding: 7px;
+  border-left: solid 2px;
+  border-color: var(--second-color);
+  font-weight: 560;
+}
+
+.textoClasesImgAdultos img{
+  width: 100%;
+ height: 100%;
+ box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+   border-radius: 6%;
+}
+
+
+/*=======================================================
+                    SECCION TALLERES
+  =========================================================*/
+  
+  .tituloTalleres{
+    grid-area: titulo-talleres;
+    
+  }
+
+  .imgTalleres{
+    grid-area: img-talleres ;
+    
+  }
+
+  .textoTalleres{
+    grid-area: texto-talleres;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    
+} 
+
+.textoTalleres p{
+  padding: 7px;
+  font-weight: 560;
+  border-left: solid 2px;
+  border-color: var(--second-color);
+  
+ }
+
+ .imgTalleres img{
+  margin-top: 50px; 
+  width: 100%;
+   height: 100%;
+   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+   border-radius: 6%;
+ }
+
+
+
+ /*=======================================================
+                    SECCION NOSOTRAS
+  =========================================================*/
+  
+  .tituloNosotras{
+    grid-area: titulo-nosotras;
+    
+  }
+
+  .imgNosotras{
+    grid-area: img-nosotras ;
+    
+    
+  }
+
+  .textoNosotras{
+    grid-area: texto-nosotras;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-right: 30px;
+    
+    
+} 
+
+.textoNosotras p{
+  padding: 7px;
+  font-weight: 560;
+  border-left: solid 2px;
+  border-color: var(--second-color);
+  
+ }
+
+ .imgNosotras img{
+  margin-left: 50px;
+  width: 90%;
+   height: 90%;
+   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+   border-radius: 6%;
+ }
+
+
+  
+.imagenesIndividuales{
+  grid-area: imagenes-individuales;
+  text-align: center;
+  color: #505050;
+  line-height: 1.7;
+  background: rgb(233,36,11);
+  background: linear-gradient(90deg, rgba(233,36,11,1) 0%, rgba(251,97,7,1) 100%, rgba(0,212,255,1) 100%);
+ 
+} 
+
+.imagenesIndividuales .content{
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+}
+
+.imagenesIndividuales > .titulo{
+max-width: 600px;
+margin:auto;
+margin-bottom: 60px;
+
+}
+
+.imagenesIndividuales > .titulo h3{
+margin-bottom: 25px;
+font-size: 2em;
+}
+
+.imagenesIndividuales > .titulo p{
+font-size: 1.3em;
+}
+
+.imagenesIndividuales > .box figure{
+width: 100%;
+margin-bottom: 20px;
+position: relative;
+
+}
+
+.img-profesora-individual{
+width: 250px;
+height: 250px;
+border-radius: 6px;
+object-fit: cover;
+box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+}
+
+
+/*=============================
+    Seccion modalidad
+==============================*/
+
+.tituloModalidad{
+  grid-area: titulo-modalidad;
+  
+}
+
+.imgModalidad{
+  grid-area: img-modalidad ;
+  
+}
+
+.textoModalidad{
+  grid-area: texto-modalidad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  
+} 
+
+.textoModalidad p{
+padding: 7px;
+font-weight: 560;
+border-left: solid 2px;
+border-color: var(--second-color);
+
+}
+
+.imgModalidad img{
+margin-top: 50px; 
+width: 100%;
+ height: 100%;
+ box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+ border-radius: 6%;
+}
+
+
+.lista-sin-punto {
+  list-style:none;
+}
+
+
+/*================================================
+              SECCION CONTACTO
+==================================================*/
+  
+.tituloContacto{
+  grid-area: titulo-talleres;
+  
+}
+
+.errores{
+  grid-area: errores;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 20px;
+}
+
+.formularioContacto{
+  grid-area: formulario-contacto ;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+}
+
+.formularioContacto input{
+  border-radius: 6px;
+  height: 35px;
+  border:solid 2px;
+  border-color: var(--second-color);
+  font-size: 0.8;
+
+}
+
+.formularioContacto form{
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+  padding: 10px;
+  border-radius: 15px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formularioContacto textarea{
+  border-radius: 6px;
+  height: 35px;
+  border:solid 2px;
+  border-color: var(--second-color);
+  font-size: 0.8;
+  
+}
+
+.botonFormulario{
+  font-weight: 700;
+  background-color: var(--second-color);
+  color: white;
+  width: 150px;
+  
+}
+.botonFormulario:hover{
+  font-weight: 700;
+  background-color: white;
+  width: 150px;
+  color: var(--second-color);
+  transition: all 500ms ease-out;
+}
+
+
+@media screen and (min-width: 1024px) {  
+    
+    /*Menú*/
+    
+    .menu-btn {
+      display: none;
+    }
+
+    .menuPrincipal{
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    
+
+    .menuPrincipal >.header{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(233,36,11);
+        background: linear-gradient(90deg, rgba(233,36,11,1) 0%, rgba(251,97,7,1) 100%, rgba(0,212,255,1) 100%);
+    }
+    
+  
+    .menu {
+      position: static;
+      width: auto;
+      flex-direction: row;
+      opacity: 1;
+      pointer-events: auto;
+      justify-content:center;
+      background: transparent;
+      
+    }
+
+    .container{
+        flex-direction: row;
+        justify-content: center;
+    }
+
+  
+
+    .header > .container {
+        flex-direction: row;
+        justify-content: center; 
+         
+    }
+  
+    .menu a {
+      padding: 0 1rem;
+    }
+  
+    .menu a:last-child {
+      padding-right: 0;
+    }
+  
+    .menu a:hover {
+      background-color: transparent;
+    }
+  
+  
+  }/*fin de media query*/
+
+
+
+
+  /* ********** Utilities ********** */
+
+  .none {
+    display: none;
+  }
+
+
+
+
+
+
+
+  @media screen and (min-width: 1024px) {
+
+    .header {
+        position: sticky;
+        top: 0;
+        padding: 0.5rem;
+        height: calc(var(--header-height) - 0.5rem);
+        margin-top: 1em;
+      }
+   
+    
+
+  }
+
+  
+  
