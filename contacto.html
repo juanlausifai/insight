@@ -51,10 +51,10 @@
         <div  id="listadoErrores"  ></div>
     </section>
     
-    <section class="formularioContacto">
+    <section id="formularioContacto" class="formularioContacto">
         
-        <form>
-            <table>
+        <form id="primerFormulario">
+            <table id="tablaFormulario">
                 <tr>
                     <td ><strong>Apellido:</strong></td><td><input id="txtApellido" name="apellido" type="text" style="width:280px" /></td>
                 </tr>
@@ -74,10 +74,89 @@
                     <td><strong>Observación:</strong></td><td><textarea id="txtObservacion" name="observacion" style="width:280px" rows="5" ></textarea></td>
                 </tr>
                 <tr>
+                  <td><strong>Tienes conocimento de inglés?:</strong></td>
+                  <td >
+                    <div class="radios">
+                      <label for="radioSi"><input type="radio" id="radioSi" name="ingles"/> <span>Sí</span></label>
+                      <label for="radioNo"><input type="radio" id="radioNo" name="ingles"/> <span>No</span></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td><td><input class="botonFormulario" type="button" value="Completar Cuestionario" id="buttonCuestionario"></td>
                     <td>&nbsp;</td><td><input class="botonFormulario" type="button" value="Enviar" id="buttonEnviar"></td>
                 </tr>
+                
             </table>
         </form>
+
+
+        <form id="segundoFormulario">
+          <table id="tablaFormulario">
+              <tr>
+                <td>&nbsp;</td><td><input class="botonFormulario" type="button" value="<< Regresar" id="buttonRegresar"></td>
+              </tr>
+              <tr >
+                <td ><strong>1-Can I park here?</strong></td>
+                <td style="border-bottom: solid 2px;border-color: var(--second-color);">
+                  <div class="radios">
+                    <label ><input type="radio" id="preguntaUnoOpcionUno" name="preguntaUno"/> <span>Sorry, I did that.</span></label>
+                    <label ><input type="radio" id="preguntaUnoOpcionDos"  name="preguntaUno"/> <span>It's the same place.</span></label>
+                    <label ><input type="radio" id="preguntaUnoOpcionTres"  name="preguntaUno"/> <span>Only for half an hour..</span></label>
+                  </div>
+                </td>
+              </tr>
+              
+              <tr>
+                <td><strong>2-What colour will you paint the children's bedroom?</strong></td>
+                <td style="border-bottom: solid 2px;border-color: var(--second-color);">
+                  <div class="radios">
+                    <label ><input type="radio" id="preguntaDosOpcionUno"  name="preguntaDos"/> <span>I hope it was right.</span></label>
+                    <label ><input type="radio" id="preguntaDosOpcionDos" name="preguntaDos"/> <span>We can't decide.</span></label>
+                    <label ><input type="radio" id="preguntaDosOpcionTres" name="preguntaDos"/> <span>It wasn't very difficult.</span></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>3-I can't understand this email.</strong></td>
+                <td style="border-bottom: solid 2px;border-color: var(--second-color);">
+                  <div class="radios">
+                    <label ><input type="radio" id="preguntaTresOpcionUno" name="preguntaTres"/> <span>Would you like some help?</span></label>
+                    <label ><input type="radio" id="preguntaTresOpcionDos" name="preguntaTres"/> <span>Don't you know?</span></label>
+                    <label ><input type="radio" id="preguntaTresOpcionTres" name="preguntaTres"/> <span>I suppose you can.</span></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>4-I'd like two tickets for tomorrow night.</strong></td>
+                <td style="border-bottom: solid 2px;border-color: var(--second-color);">
+                  <div class="radios">
+                    <label ><input type="radio" id="preguntaCuatroOpcionUno" name="preguntaCuatro"/> <span>How much did you pay?</span></label>
+                    <label ><input type="radio" id="preguntaCuatroOpcionDos"  name="preguntaCuatro"/> <span>Afternoon and evening.</span></label>
+                    <label ><input type="radio" id="preguntaCuatroOpcionTres"  name="preguntaCuatro"/> <span>I'll just check for you.</span></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>5-Shall we go to the gym now?</strong></td>
+                <td >
+                  <div class="radios">
+                    <label ><input type="radio" id="preguntaCincoOpcionUno"  name="preguntaCinco"/> <span>I'm too tired.</span></label>
+                    <label ><input type="radio" id="preguntaCincoOpcionDos" name="preguntaCinco"/> <span>It's very good.</span></label>
+                    <label ><input type="radio" id="preguntaCincoOpcionTres" name="preguntaCinco"/> <span>Not at all.</span></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                  
+                  <td>&nbsp;</td><td><input class="botonFormulario" type="button" value="Enviar" id="buttonEnviarDos"></td>
+              </tr>
+              
+          </table>
+      </form>
+
+
+
     </section>
    
     <section class="logoInstagram">

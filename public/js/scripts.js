@@ -127,12 +127,17 @@ function controltxtFecha(){
     let MesHoy = hoy.getMonth();
     let DiaHoy = hoy.getDate();
 
-    let rangoCorrecto = AnyoFecha == AnyoHoy && MesFecha == MesHoy && DiaFecha >= DiaHoy;
+    let rangoCorrecto = (AnyoFecha == AnyoHoy && MesFecha == MesHoy && DiaFecha >= DiaHoy) 
+    || (AnyoFecha == AnyoHoy && MesFecha > MesHoy)||AnyoFecha > AnyoHoy;
+    
+    
+
+        
     
     if(txtFecha.value.trim()==="" || !rangoCorrecto ){
         txtFecha.style.border="solid red";
         if(txtFecha.value.trim()===""){
-            arregloDeErrores.push("Debe Completar la fecha");
+            arregloDeErrores.push("Debe Completar la fecha con un valor correcto");
         }
         if(!rangoCorrecto){
             arregloDeErrores.push(`La fecha debe ser igual o mayor a la fecha de hoy`);
@@ -180,3 +185,209 @@ function correoEnviado(){
     txtFecha.value="";
     txtObservacion.value="";
 }
+
+
+ const radioSi = document.getElementById("radioSi");
+ const buttonCuestionario = document.getElementById("buttonCuestionario");
+ const radioNo = document.getElementById("radioNo");
+ const primerFormulario = document.getElementById("primerFormulario");
+ const segundoFormulario = document.getElementById("segundoFormulario");
+ const buttonEnviarDos = document.getElementById("buttonEnviarDos");
+ const buttonRegresar = document.getElementById("buttonRegresar");
+
+
+
+
+ buttonEnviarDos.addEventListener('click', envioFormularioDos);
+ buttonRegresar.addEventListener('click', volverPrimerFormulario);
+ radioNo.addEventListener('click', mostrarBotonEnviar);
+ 
+ segundoFormulario.style.display="none";
+ buttonCuestionario.style.display="none";
+ button.style.display="none";
+
+ radioSi.addEventListener('click', mostrarBotonCuestionario);
+ buttonCuestionario.addEventListener('click', nuevoFormulario); 
+
+ function mostrarBotonEnviar(){
+    button.style.display="";
+    buttonCuestionario.style.display="none";
+ }
+ 
+ function mostrarBotonCuestionario(){
+    button.style.display="none"
+    buttonCuestionario.style.display="";
+ }
+
+ function nuevoFormulario(){
+     
+    errorFormulario = false;
+    arregloDeErrores=[];
+    controlTxtApellido();
+    controltxtNombre();
+    controltxtEmail();
+    controltxtEdad();
+    controltxtFecha();
+
+    divListadoErrores.innerHTML="";
+    if (errorFormulario) {
+      divListadoErrores.style.color="white";
+      divListadoErrores.style.background="#C61515";
+      divListadoErrores.style.padding="15px";
+      divListadoErrores.style.borderRadius="15px";
+      divListadoErrores.style.fontWeight="500";
+      divListadoErrores.style.transition= "all 500ms ease-out";
+      
+        for (let i = 0; i < arregloDeErrores.length; i++) {
+            const element = arregloDeErrores[i];
+            divListadoErrores.innerHTML += `<li>${element}</li>`;
+            
+        }
+    } else {
+        primerFormulario.style.display="none";
+        segundoFormulario.style.display="";
+        divListadoErrores.style.background="white";  
+    }
+    
+    
+    
+    
+ }
+
+ function volverPrimerFormulario(){
+
+    primerFormulario.style.display="";
+    segundoFormulario.style.display="none";
+    radioSi.checked = false;
+    buttonCuestionario.style.display="none";
+    divListadoErrores.innerHTML="";
+    divListadoErrores.style.background="white";
+ }
+
+
+
+
+ function envioFormularioDos(){
+
+    errorFormulario = false;
+    arregloDeErrores=[];
+
+    
+
+    const preguntaUnoOpcionUno=document.getElementById("preguntaUnoOpcionUno");
+    const preguntaUnoOpcionDos=document.getElementById("preguntaUnoOpcionDos");
+    const preguntaUnoOpcionTres=document.getElementById("preguntaUnoOpcionTres");
+    
+    const preguntaDosOpcionUno=document.getElementById("preguntaDosOpcionUno");
+    const preguntaDosOpcionDos=document.getElementById("preguntaDosOpcionDos");
+    const preguntaDosOpcionTres=document.getElementById("preguntaDosOpcionTres");
+
+    const preguntaTresOpcionUno=document.getElementById("preguntaTresOpcionUno");
+    const preguntaTresOpcionDos=document.getElementById("preguntaTresOpcionDos");
+    const preguntaTresOpcionTres=document.getElementById("preguntaTresOpcionTres");
+
+    const preguntaCuatroOpcionUno=document.getElementById("preguntaCuatroOpcionUno");
+    const preguntaCuatroOpcionDos=document.getElementById("preguntaCuatroOpcionDos");
+    const preguntaCuatroOpcionTres=document.getElementById("preguntaCuatroOpcionTres");
+
+    const preguntaCincoOpcionUno=document.getElementById("preguntaCincoOpcionUno");
+    const preguntaCincoOpcionDos=document.getElementById("preguntaCincoOpcionDos");
+    const preguntaCincoOpcionTres=document.getElementById("preguntaCincoOpcionTres");
+    
+    
+    let preguntaUnoCorrecta=preguntaUnoOpcionUno.checked 
+        || preguntaUnoOpcionDos.checked || preguntaUnoOpcionTres.checked;
+    
+
+    let preguntaDosCorrecta=preguntaDosOpcionUno.checked 
+    || preguntaDosOpcionDos.checked || preguntaDosOpcionTres.checked;
+
+    let preguntaTresCorrecta=preguntaTresOpcionUno.checked 
+    || preguntaTresOpcionDos.checked || preguntaTresOpcionTres.checked;
+
+    let preguntaCuatroCorrecta=preguntaCuatroOpcionUno.checked 
+    || preguntaCuatroOpcionDos.checked || preguntaCuatroOpcionTres.checked;
+
+    let preguntaCincoCorrecta=preguntaCincoOpcionUno.checked 
+    || preguntaCincoOpcionDos.checked || preguntaCincoOpcionTres.checked;
+
+    
+   
+
+
+    if(!preguntaUnoCorrecta) {
+        arregloDeErrores.push("Debe Completar la pregunta uno");
+        errorFormulario=true;
+        }
+
+    if(!preguntaDosCorrecta) {
+        arregloDeErrores.push("Debe Completar la pregunta dos");
+        errorFormulario=true;
+        }    
+        
+    if(!preguntaTresCorrecta) {
+        arregloDeErrores.push("Debe Completar la pregunta tres");
+        errorFormulario=true;
+        }
+        
+    if(!preguntaCuatroCorrecta) {
+        arregloDeErrores.push("Debe Completar la pregunta cuatro");
+        errorFormulario=true;
+        }
+        
+    if(!preguntaCincoCorrecta) {
+        arregloDeErrores.push("Debe Completar la pregunta cinco");
+        errorFormulario=true;
+        }   
+        
+    
+
+    divListadoErrores.innerHTML="";
+    if(!errorFormulario){
+        correoEnviado();
+        primerFormulario.style.display="";
+        segundoFormulario.style.display="none";
+        radioSi.checked = false;
+        buttonCuestionario.style.display="none";
+
+         preguntaUnoOpcionUno.checked=false;
+         preguntaUnoOpcionDos.checked=false;
+         preguntaUnoOpcionTres.checked=false;
+        
+         preguntaDosOpcionUno.checked=false;
+         preguntaDosOpcionDos.checked=false;
+         preguntaDosOpcionTres.checked=false;
+    
+         preguntaTresOpcionUno.checked=false;
+         preguntaTresOpcionDos.checked=false;
+         preguntaTresOpcionTres.checked=false;
+    
+         preguntaCuatroOpcionUno.checked=false;
+         preguntaCuatroOpcionDos.checked=false;
+         preguntaCuatroOpcionTres.checked=false;
+    
+         preguntaCincoOpcionUno.checked=false;
+         preguntaCincoOpcionDos.checked=false;
+         preguntaCincoOpcionTres.checked=false;
+
+    }else{
+      divListadoErrores.style.color="white";
+      divListadoErrores.style.background="#C61515";
+      divListadoErrores.style.padding="15px";
+      divListadoErrores.style.borderRadius="15px";
+      divListadoErrores.style.fontWeight="500";
+      divListadoErrores.style.transition= "all 500ms ease-out";
+      
+        for (let i = 0; i < arregloDeErrores.length; i++) {
+            const element = arregloDeErrores[i];
+            divListadoErrores.innerHTML += `<li>${element}</li>`;
+            
+        }
+        
+    }
+
+    divListadoErrores.style.transition= "all 500ms ease-out";
+
+ }
+
+ 
